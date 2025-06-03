@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    <h2>Editar Pessoa</h2>
+    <form method="POST" action="{{ url_for('editar_pessoa', id=pessoa.id) }}">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text"
+                   id="nome"
+                   name="nome"
+                   value="{{ pessoa.nome }}"
+                   maxlength="50"
+                   pattern="[A-Za-zÀ-ÿ\s]+"
+                   title="O nome deve conter apenas letras e até 50 caracteres"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text"
+                   id="sobrenome"
+                   name="sobrenome"
+                   value="{{ pessoa.sobrenome }}"
+                   maxlength="50"
+                   pattern="[A-Za-zÀ-ÿ\s]+"
+                   title="O sobrenome deve conter apenas letras e até 50 caracteres"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text"
+                   id="cpf"
+                   name="cpf"
+                   value="{{ pessoa.cpf }}"
+                   maxlength="11"
+                   pattern="\d{11}"
+                   title="Digite exatamente 11 números"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" 
+                id="data_nascimento" 
+                name="data_nascimento" 
+                value="{{ pessoa.data_de_nascimento }}"
+                min="1900-01-01"
+                max="{{ max_date }}"
+                title="Data de nascimento inválida"
+                required>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Salvar Alterações</button>
+        <a href="{{ url_for('listar_pessoas') }}" class="btn">Cancelar</a>
+    </form>
+{% endblock %}
