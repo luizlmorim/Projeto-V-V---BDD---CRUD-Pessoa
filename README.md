@@ -15,3 +15,17 @@ Behavior-Driven Development (BDD) usando o Behave.</p>
 🗑 Remoção de registros
 
 🧪 Testes BDD automatizados com Behave + Flask Test Client
+
+<h2>Testes BDD (Behavior Driven Development)</h2>
+Os testes estão organizados por funcionalidade, usando a
+linguagem Gherkin para simular o comportamento real do usuário:
+
+📁 features/
+
+cadastrar: testes para criação com validações (nome vazio, CPF inválido, etc.)
+
+editar: testes para atualização com base em bugs reais identificados
+
+remover: testes para exclusão e tratamento de erro para ID inexistente
+
+ler: testes para visualização de registros e mensagem quando não houver d
