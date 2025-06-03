@@ -28,4 +28,4 @@ editar: testes para atualização com base em bugs reais identificados
 
 remover: testes para exclusão e tratamento de erro para ID inexistente
 
-ler: testes para visualização de registros e mensagem quando não houver d
+ler: testes para visualização de registros e mensagem quando não houver dados
